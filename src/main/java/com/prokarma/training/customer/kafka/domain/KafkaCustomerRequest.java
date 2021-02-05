@@ -1,4 +1,4 @@
-package com.prokarma.training.customer.consumer.kafka.domain;
+package com.prokarma.training.customer.kafka.domain;
 
 public class KafkaCustomerRequest {
 

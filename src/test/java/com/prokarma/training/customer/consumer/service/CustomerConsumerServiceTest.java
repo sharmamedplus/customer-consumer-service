@@ -39,7 +39,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import com.prokarma.training.customer.consumer.converter.DefaultCustomerConsumerConverter;
 import com.prokarma.training.customer.consumer.helper.CustomerDataHelper;
-import com.prokarma.training.customer.consumer.kafka.domain.KafkaCustomerRequest;
+import com.prokarma.training.customer.kafka.domain.KafkaCustomerRequest;
 
 @EmbeddedKafka
 @ExtendWith(SpringExtension.class)

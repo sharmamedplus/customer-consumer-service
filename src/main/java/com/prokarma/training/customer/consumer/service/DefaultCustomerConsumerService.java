@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.prokarma.training.customer.consumer.entity.AuditLog;
-import com.prokarma.training.customer.consumer.kafka.domain.KafkaCustomerRequest;
 import com.prokarma.training.customer.consumer.repository.AuditLogRepository;
+import com.prokarma.training.customer.kafka.domain.KafkaCustomerRequest;
 
 @Service
 public class DefaultCustomerConsumerService implements CustomerConsumerService {

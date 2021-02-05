@@ -11,22 +11,22 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import com.prokarma.training.customer.consumer.helper.CustomerDataHelper;
-import com.prokarma.training.customer.consumer.kafka.domain.KafkaCustomerRequest;
+import com.prokarma.training.customer.kafka.domain.KafkaCustomerRequest;
 
 @ExtendWith(MockitoExtension.class)
 class DefaultCustomerConsumerConverterTest {
 
 	@Test
-	void testConvert() {
+	void testConvertToCustomerConsumerRequest() {
 		DefaultCustomerConsumerConverter mockDefaultCustomerConsumerConverter = mock(
 				DefaultCustomerConsumerConverter.class);
-		
+
 		doAnswer((i) -> {
 			KafkaCustomerRequest customerRequest = i.getArgument(0);
 			assertEquals("IN04852048", customerRequest.getCustomerNumber());
 			return null;
 		}).when(mockDefaultCustomerConsumerConverter).convert(CustomerDataHelper.getKafkaCustomerRequestData());
-		
+
 		mockDefaultCustomerConsumerConverter.convert(CustomerDataHelper.getKafkaCustomerRequestData());
 		verify(mockDefaultCustomerConsumerConverter, times(1))
 				.convert(CustomerDataHelper.getKafkaCustomerRequestData());

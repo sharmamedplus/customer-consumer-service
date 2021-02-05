@@ -74,7 +74,33 @@
 			<artifactId>hibernate-types-52</artifactId>
 			<version>2.2.2</version>
 		</dependency>
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-core</artifactId>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.splunk.logging/splunk-library-javalogging -->
+		<dependency>
+			<groupId>com.splunk.logging</groupId>
+			<artifactId>splunk-library-javalogging</artifactId>
+			<version>1.6.2</version>
+			<scope>runtime</scope>
+		</dependency>
 	</dependencies>
+	<repositories>
+		<repository>
+		<id>splunk-artifactory</id>
+		<name>Splunk Releases</name>
+		<url>https://splunk.jfrog.io/splunk/ext-releases-local</url>
+		</repository>
+	</repositories>
 
 	<build>
 		<plugins>

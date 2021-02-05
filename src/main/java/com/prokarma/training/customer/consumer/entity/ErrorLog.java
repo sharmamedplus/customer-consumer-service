@@ -10,12 +10,14 @@ import javax.persistence.Table;
 import org.hibernate.annotations.Type;
 import org.hibernate.annotations.TypeDef;
 
-import com.prokarma.training.customer.consumer.kafka.domain.KafkaCustomerRequest;
+import com.prokarma.training.customer.kafka.domain.KafkaCustomerRequest;
+import com.vladmihalcea.hibernate.type.json.JsonBinaryType;
 import com.vladmihalcea.hibernate.type.json.JsonStringType;
 
 @Entity
 @Table(name = "ERROR_LOG")
-@TypeDef(name = "json", typeClass = JsonStringType.class)
+//@TypeDef(name = "json", typeClass = JsonStringType.class)
+@TypeDef(name = "jsonb", typeClass = JsonBinaryType.class)
 public class ErrorLog {
 
 	@Id
@@ -28,8 +30,8 @@ public class ErrorLog {
 	@Column(name = "error_description")
 	private String errorDescription;
 
-	@Type(type = "json")
-	@Column(columnDefinition = "json")
+	@Type(type = "jsonb")
+	@Column(columnDefinition = "jsonb")
 	private KafkaCustomerRequest payload;
 
 	public Long getId() {

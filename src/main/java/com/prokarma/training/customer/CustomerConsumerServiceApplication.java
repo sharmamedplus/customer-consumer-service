@@ -1,4 +1,4 @@
-package com.prokarma.training.customer.consumer;
+package com.prokarma.training.customer;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -3,15 +3,14 @@ package com.prokarma.training.customer.consumer.aop;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Pointcut;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.prokarma.training.customer.consumer.entity.ErrorLog;
-import com.prokarma.training.customer.consumer.kafka.domain.KafkaCustomerRequest;
 import com.prokarma.training.customer.consumer.repository.ErrorLogRepository;
+import com.prokarma.training.customer.kafka.domain.KafkaCustomerRequest;
 
 @Aspect
 @Component
@@ -22,12 +21,7 @@ public class CustomerConsumerServiceAspect {
 	@Autowired
 	private ErrorLogRepository errorLogRepository;
 
-	@Pointcut(value = "execution(* com.prokarma.training.customer.consumer.service.DefaultCustomerConsumerService.saveConsumedData(..))")
-	public void saveConsumedData() {
-		// This is pointcut method.
-	}
-
-	@AfterThrowing(pointcut = "saveConsumedData()", throwing = "ex")
+	@AfterThrowing(value = "execution(* com.prokarma.training.customer.consumer.service.DefaultCustomerConsumerService.saveConsumedData(..))", throwing = "ex")
 	public void afterThrowing(JoinPoint joinPoint, Throwable ex) {
 		LOG.error("Exception occured while consuming data : {}", ex.getMessage(), ex);
 
